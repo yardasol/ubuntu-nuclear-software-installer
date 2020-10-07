@@ -15,12 +15,19 @@ sudo apt-get install update
 #Export miniconda3 to your PATH
 #export PATH=$HOME/miniconda3/bin:$PATH
 
-#Configure conda to work with conda-forge and the MOOSE framework channel
+#Configure conda to work with conda-forge 
 conda config --add channels conda-forge
+
+#Install the OpenMC conda packages
+conda search openmc
+conda create --name openmc-env openmc
+
+#add the MOOSE framework channel
 conda config --add channels idaholab
 
 #Install MOOSE conda packages
 conda create --name moose moose-libmesh moose-tools 
+
 
 #install pip3
 sudo apt-get install python3-pip
