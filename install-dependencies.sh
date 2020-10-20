@@ -18,18 +18,14 @@ sudo apt-get install update
 #Configure conda to work with conda-forge 
 conda config --add channels conda-forge
 
-#Install the OpenMC conda packages
-conda search openmc
-conda create --name openmc-env openmc
-
 #add the MOOSE framework channel
 conda config --add channels idaholab
 
-#Install MOOSE conda packages
-conda create --name moose moose-libmesh moose-tools 
+#Create nuclear environment and install the OpenMC, MOOSE, and yt packages
+conda create --name nuclear openmc moose-libmesh moose-tools yt tox 
 
 #install gmsh
-pip intsall --upgrade gmsh
+pip install --upgrade gmsh
 
 #install pip3
 sudo apt-get install python3-pip
