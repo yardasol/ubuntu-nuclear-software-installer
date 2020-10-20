@@ -28,6 +28,8 @@ conda config --add channels idaholab
 #Install MOOSE conda packages
 conda create --name moose moose-libmesh moose-tools 
 
+#install gmsh
+pip intsall --upgrade gmsh
 
 #install pip3
 sudo apt-get install python3-pip
