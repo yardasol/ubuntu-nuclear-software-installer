@@ -8,6 +8,10 @@ sudo apt-get install update
 sudo apt-get install make -y
 sudo apt-get install update
 
+#install cmake
+sudo apt-get install cmake -y
+sudo apt-get install update
+
 #Configure conda to work with conda-forge 
 conda config --add channels conda-forge
 
@@ -15,16 +19,15 @@ conda config --add channels conda-forge
 conda config --add channels idaholab
 
 #Create nuclear environment and install the OpenMC, MOOSE, yt, and gmsh packages
-conda create --name nuclear openmc moose-libmesh moose-tools yt tox gmsh
+conda create --name nuclear openmc moose-libmesh moose-tools yt gmsh
 
 #create projects directory
 mkdir ~/projects
 cd ~/projects
 
-#install MOOSE, Moltres, and ARMI from github
+#install MOOSE, Moltres sourcecode
 git clone https://github.com/idaholab/moose
 git clone https://github.com/arfc/moltres
-git clone https://github.com/terrapower/armi
 
 #activate the nuclear environment
 conda init bash
