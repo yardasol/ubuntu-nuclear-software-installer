@@ -18,8 +18,8 @@ conda config --add channels conda-forge
 #add the MOOSE framework channel
 conda config --add channels idaholab
 
-#Create nuclear environment and install the OpenMC, MOOSE, yt, and gmsh packages
-conda create --name nuclear jupyter openmc moose-libmesh moose-tools yt gmsh
+#Create nuclear environment and install the OpenMC, MOOSE, yt, gmsh, pyne packages
+conda create --name nuclear jupyter openmc moose-libmesh moose-tools yt gmsh pyne
 
 #create projects directory
 mkdir ~/projects
