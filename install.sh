@@ -1,13 +1,10 @@
 #! ~/bin/bash
 
-conda init bash
-
-
 # Install gcc, g++, make, cmake, hdf5, and openmpi
-sudo apt-get install update
-sudo apt-get install gcc g++ gfortran make cmake -y
-sudo apt-get install libhdf5-dev libhdf5-openmpi-dev openmpi-bin libopenmpi-dev -y
-sudo apt-get install update
+sudo apt update
+sudo apt install gcc g++ gfortran make cmake -y
+sudo apt install libhdf5-dev libhdf5-openmpi-dev openmpi-bin libopenmpi-dev -y
+sudo apt update
 
 # Configure conda to work with conda-forge 
 conda config --append channels conda-forge idaholab
@@ -30,19 +27,20 @@ mkdir $NUC_SOFTWARE
 cd $NUC_SOFTWARE
 
 #github username
-export $GITHUB_UNAME=yardasol
+GITHUB_UNAME=yardasol
 authors=("idaholab" "arfc" "openmc-dev" "pyne")
 repos=("moose" "moltres" "openmc" "pyne")
 branches=("next" "devel" "develop" "develop")
 indices=(0 1 2 3)
 
 #Set up local git branches
-for i in ${indices[*]}
-  git clone https://github.com/$GITHUB_NAME/${repos[$i]}
+for i in ${indices[*]}; do
+  git clone https://github.com/$GITHUB_UNAME/${repos[$i]}
   cd ${repos[$i]}
-  git remote set-url origin git@github.com:$GITHUB_UNAME/${repos[$i]}
+  git remote set-url origin git@github.com:$GITHUB_UNAME/${repos[$i]}.git
   git remote add upstream https://github.com/${authors[$i]}/${repos[$i]}
-  #git fetch upstream/${branches[$i]}
-  #git merge upstream/${branches[$i]}
-  #git push
+  git fetch upstream
+  git merge upstream/${branches[$i]}
+  git push
   cd ../
+done
