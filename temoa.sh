@@ -2,8 +2,7 @@
 
 cd ~/projects
 mkdir temoa-py3; cd temoa-py3
-wget https://github.com/TemoaProject/temoa/blob/energysystem/environment.yml
-conda init bash
+wget https://raw.githubusercontent.com/TemoaProject/temoa/energysystem/environment.yml
 conda env create
 conda activate temoa-py3
 git clone https://github.com/TemoaProject/temoa
