@@ -31,33 +31,18 @@ cd $NUC_SOFTWARE
 
 #github username
 export $GITHUB_UNAME=yardasol
+authors=("idaholab" "arfc" "openmc-dev" "pyne")
+repos=("moose" "moltres" "openmc" "pyne")
+branches=("next" "devel" "develop" "develop")
+indices=(0 1 2 3)
 
-# Install forks for nuclear software
-git clone https://github.com/$GITHUB_UNAME/moose
-git clone https://github.com/$GITHUB_UNAME/moltres
-git clone https://github.com/$GITHUB_UNAME/openmc
-git clone https://github.com/$GITHUB_UNAME/pyne
-
-# Create forks for development
-cd moose
-git remote add upstream https://github.com/idaholab/moose
-git fetch upstream/next
-git merge upstream/next
-
-cd ../moltres
-git remote add upstream https://github.com/arfc/moltres
-git fetch upstream/devel
-git merge upstream/devel
-
-cd ../openmc
-git remote add upstream https://github.com/openmc-dev/openmc
-git fetch upstream/develop
-git merge upstream/develop
-
-cd ../pyne
-git remote add upstream https://github.com/pyne/pyne
-git fetch upstream/develop
-git merge upstream/develop
-
-
-
+#Set up local git branches
+for i in ${indices[*]}
+  git clone https://github.com/$GITHUB_NAME/${repos[$i]}
+  cd ${repos[$i]}
+  git remote set-url origin git@github.com/$GITHUB_UNAME/${repos[$i]}
+  git remote add upstream https://github.com/${authors[$i]}/${repos[$i]}
+  #git fetch upstream/${branches[$i]}
+  #git merge upstream/${branches[$i]}
+  #git push
+  cd ../
