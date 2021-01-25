@@ -40,7 +40,7 @@ indices=(0 1 2 3)
 for i in ${indices[*]}
   git clone https://github.com/$GITHUB_NAME/${repos[$i]}
   cd ${repos[$i]}
-  git remote set-url origin git@github.com/$GITHUB_UNAME/${repos[$i]}
+  git remote set-url origin git@github.com:$GITHUB_UNAME/${repos[$i]}
   git remote add upstream https://github.com/${authors[$i]}/${repos[$i]}
   #git fetch upstream/${branches[$i]}
   #git merge upstream/${branches[$i]}
