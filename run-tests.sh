@@ -1,5 +1,4 @@
 # Activate the moove-env environment
-conda init bash
 conda activate moose-env
 
 # Compile and test MOOSE
