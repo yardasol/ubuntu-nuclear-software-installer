@@ -35,10 +35,9 @@ indices=(0 1 2 3)
 
 #Set up local git branches
 for i in ${indices[*]}; do
-  git clone https://github.com/$GITHUB_UNAME/${repos[$i]}
+  git clone git@github.com:$GITHUB_UNAME/${repos[$i]}
   cd ${repos[$i]}
-  git remote set-url origin git@github.com:$GITHUB_UNAME/${repos[$i]}.git
-  git remote add upstream https://github.com/${authors[$i]}/${repos[$i]}
+  git remote add upstream git@github.com:${authors[$i]}/${repos[$i]}
   git fetch upstream
   git merge upstream/${branches[$i]}
   git push
