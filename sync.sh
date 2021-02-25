@@ -1,8 +1,8 @@
 #! ~/bin/bash
 
 # Remote variables
-$UPSTREAM = origin
-$ORIGIN = origin
+UPSTREAM=origin
+ORIGIN=origin
 
 # Get any changes
 git fetch $UPSTREAM
@@ -15,5 +15,5 @@ indices=(0 1)
 for i in ${indices[*]}; do
 	git checkout ${branches[$i]}
 	git merge $UPSTREAM/${branches[$i]}
-	git push $ORIGIN/${branches[$i]}
+	git push $ORIGIN
 done
