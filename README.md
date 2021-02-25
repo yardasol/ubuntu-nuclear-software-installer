@@ -13,7 +13,7 @@ There are also scripts for installing software individually. Software that curre
 
 # Requirements
  - The user must fork all of the listed software tools (unless otherwise specified) listed below for the scripts to run successfully. 
- - The user must have [conda]() installed. Currently, the software only works if with anaconda. The `anaconda3` must be located in `home`. I recommend using Sam Dotson's script [ubuntu-post-installer](https://github.com/samgdotson/ubuntu-post-installer) to do this, as well as set up a few other useful pieces of software on ubuntu)
+ - The user must have [conda](https://docs.conda.io/en/latest/) installed. Currently, the software only works if with anaconda. The `anaconda3` must be located in `home`. I recommend using Sam Dotson's script [ubuntu-post-installer](https://github.com/samgdotson/ubuntu-post-installer) to do this, as well as set up a few other useful pieces of software on ubuntu)
 
 # Installation
 Assuming you have set up [ssh keys](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), run the following in your terminal
