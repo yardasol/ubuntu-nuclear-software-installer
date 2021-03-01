@@ -9,9 +9,11 @@ conda activate openmc-env
 
 # Configure conda to work with conda-forge 
 conda config --env --append channels conda-forge 
+conda config --env --set pip_interop_enabled True
 
 # Create environements that have more recent versions of the software
-conda install hdf5=1.10.4 h5py numpy scipy matplotlib uncertainties lxml mpi4py cython vtk pytest jupyterlab jinja2 --yes
+conda install hdf5=1.10.4 h5py pandas numpy scipy matplotlib uncertainties lxml mpi4py cython vtk pytest jupyterlab jinja2 --yes
+
 
 # Build Openmc from source
 mkdir build app && cd build
@@ -25,5 +27,5 @@ make install
 cd ..
 HDF5_DIR=/home/ooblack/anaconda3/envs/openmc-env/bin pip install --upgrade-strategy only-if-needed --no-binary=h5py h5py
 python pip install --upgrade-strategy only-if-needed -e .[test]
-
+#python setup.py develop
 
