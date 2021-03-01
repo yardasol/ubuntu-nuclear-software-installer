@@ -1,14 +1,5 @@
 #! ~/bin/bash
 
-# Create empty openmc environment
-conda create --name openmc-env
-
-# Configure conda to work with conda-forge 
-conda config --append channels conda-forge idaholab
-
-# Create environements that have more recent versions of the software
-conda create --name openmc-env hdf5=1.10.4 h5py numpy scipy matplotlib uncertainties lxml mpi4py cython vtk pytest jupyterlab jinja2 --yes
-
 # Create projects directory
 if [ !$1 ]
 then
