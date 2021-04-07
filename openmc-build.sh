@@ -22,20 +22,24 @@ conda config --env --append channels conda-forge
 conda config --env --set pip_interop_enabled True
 
 # Create environments that have more recent versions of the software
-conda install numpy scipy pandas matplotlib uncertainties lxml pytest requests entrypoints pyyaml --yes
+conda install numpy scipy pandas matplotlib uncertainties lxml pytest requests entrypoints pyyaml jupyterlab nb_conda_kernels --yes
 
 # build h5py
-#export CPATH=/usr/local/hdf5-$HDF5_VERSION/include
 CC=gcc \
 HDF5_DIR=/usr/local/hdf5-$HDF5_VERSION \
 pip install --upgrade-strategy only-if-needed --no-binary=h5py h5py
 
+# Install cython, vtk for additional tests
+pip install cython
+pip install vtk
 
-cd ..
-pip install --upgrade-strategy only-if-needed -e .[test]
-#python setup.py develop
 
 # Conda is stuck on numpy v1.19, we need 1.20
 # https://stackoverflow.com/questions/66060487/valueerror-numpy-ndarray-size-changed-may-indicate-binary-incompatibility-exp
 pip uninstall numpy --yes
 pip install numpy --yes
+
+cd ..
+pip install --upgrade-strategy only-if-needed -e .[test]
+#python setup.py develop
+
