@@ -37,13 +37,6 @@ pip install --upgrade-strategy only-if-needed --no-binary=h5py h5py
 pip install cython
 pip install vtk
 
-
-# Conda is stuck on numpy v1.19, we need 1.20
-# https://stackoverflow.com/questions/66060487/valueerror-numpy-ndarray-size-changed-may-indicate-binary-incompatibility-exp
-#pip uninstall numpy --yes
-#pip install numpy --yes
-
 cd ..
 pip install --upgrade-strategy only-if-needed -e .[test]
-#python setup.py develop
 
