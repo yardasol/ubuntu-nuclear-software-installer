@@ -21,12 +21,12 @@ conda activate openmc-env
 conda config --env --append channels conda-forge 
 conda config --env --set pip_interop_enabled True
 
+# Create environments that have more recent versions of the software
+conda install numpy scipy pandas matplotlib uncertainties lxml pytest requests entrypoints pyyaml jupyterlab nb_conda_kernels --yes
+
 # Create corresponding pip venv
 python3 -m venv ~/util/openmc-pip
 source ~/util/openmc-pip/bin/activate
-
-# Create environments that have more recent versions of the software
-conda install numpy scipy pandas matplotlib uncertainties lxml pytest requests entrypoints pyyaml jupyterlab nb_conda_kernels --yes
 
 # build h5py
 CC=gcc \
@@ -40,8 +40,8 @@ pip install vtk
 
 # Conda is stuck on numpy v1.19, we need 1.20
 # https://stackoverflow.com/questions/66060487/valueerror-numpy-ndarray-size-changed-may-indicate-binary-incompatibility-exp
-pip uninstall numpy --yes
-pip install numpy --yes
+#pip uninstall numpy --yes
+#pip install numpy --yes
 
 cd ..
 pip install --upgrade-strategy only-if-needed -e .[test]
