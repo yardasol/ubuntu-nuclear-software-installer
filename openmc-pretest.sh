@@ -5,9 +5,8 @@ echo "recreate openmc environment?"
 echo "'y' if so, otherwise enter any other charater(s)"
 
 read input
-cd $HOME/projects/openmc 
 
-if [$input = y];
+if [[ $input = "y" ]];
 	then 
 	# Remove current openmc environment
 	conda activate base
@@ -36,13 +35,14 @@ if [$input = y];
 	pip install --upgrade-strategy only-if-needed -e .[test]
 fi
 
+cd $HOME/projects/openmc 
 # Download the test cross sections
 cd tools/ci
 source download-xs.sh
 
 # NJOY requires a bit more effort to get
 DIR=$HOME/projects/NJOY2016
-if ![ -d "$DIR" ]; then
+if [[ ! -d "$DIR" ]]; then
 	git clone git@github.com:njoy/NJOY2016 $DIR
 	cd $DIR
 	mkdir bin && cd bin
@@ -51,7 +51,7 @@ else
 	git checkout master
 	git fetch origin
 	git merge origin/master
-	mkdir bin && cd bin
+	cd bin
 fi
 cmake -D CMAKE_BUILD_TYPE=Release ../
 make
