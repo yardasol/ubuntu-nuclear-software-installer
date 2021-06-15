@@ -23,7 +23,6 @@ conda config --env --set pip_interop_enabled True
 
 # Create environments that have more recent versions of the software
 conda install numpy scipy pandas matplotlib uncertainties lxml pytest requests entrypoints pyyaml jupyterlab nb_conda_kernels --yes
-conda install pip
 
 # build h5py
 CC=gcc \
