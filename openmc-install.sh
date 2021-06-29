@@ -1,25 +1,19 @@
 #! ~/bin/bash
-if [ !$1 ]
-then	
-	echo "Directory to store OpenMC: "
-	read 
-	export OPENMC_DIR=$
-else
-	export OPENMC_DIR=$1
-# Create projects directory
-if [ !$1 ]
-then
-	export NUC_SOFTWARE=$HOME/$1
-else
-	export NUC_SOFTWARE=$HOME/projects
+CURRENT=pwd
+PROJECTS=$HOME/projects
+XSDIR=$PROJECTS/cross-section-libraries
+
+# Make projects directory
+if [[ ! -d "$PROJECTS" ]]; then
+	mkdir $PROJECTS
 fi
 
 #github username
 GITHUB_UNAME=yardasol
 
 #Set up local git branch
-git clone git@github.com:$GITHUB_UNAME/openmc
-cd openmc
+git clone git@github.com:$GITHUB_UNAME/openmc $HOME/projects/openmc
+cd $PROJECTS/openmc
 git remote add upstream git@github.com:openmc-dev/openmc
 git fetch upstream
 git merge upstream/develop
@@ -27,4 +21,12 @@ git push
 git checkout upstream/master
 git switch -c main
 git checkout main
-cd ../
+
+# Make cross sections directory
+if [[ ! -d "$XSDIR" ]]; then
+	mkdir $XSDIR
+fi
+
+# Download cross sections
+wget -O $XSDIR/endfb71.tar.xz https://anl.box.com/shared/static/9igk353zpy8fn9ttvtrqgzvw1vtejoz6.xz
+tar -xJf $XSDIR/endfb71.tar.xz -C $XSDIR/.
