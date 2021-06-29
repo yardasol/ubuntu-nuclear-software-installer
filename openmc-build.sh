@@ -1,17 +1,8 @@
 #! ~/bin/bash
 
-# Change to the openmc directory
-cd ~/projects/openmc
-
-# Build Openmc from source
-mkdir build app && cd build
-HDF5_VERSION=1.10.7
-CC=gcc \
-CXX=g++ \
-HDF5_ROOT=/usr/local/hdf5-$HDF5_VERSION \
-cmake -Ddebug=on -Doptimize=on -DCMAKE_INSTALL_PREFIX=$HOME/projects/openmc/app ..
-make
-make install
+# Paths
+HDF5_PATH=$HOME/anaconda3/envs/openmc-env/
+OPENMC_PATH=$HOME/projects/openmc
 
 # Create empty openmc environment
 conda create --name openmc-env --yes
@@ -26,8 +17,18 @@ conda install numpy scipy pandas matplotlib uncertainties lxml pytest requests e
 
 # build h5py
 CC=gcc \
-HDF5_DIR=/usr/local/hdf5-$HDF5_VERSION \
+HDF5_DIR=$HDF5_PATH \
 pip install --upgrade-strategy only-if-needed --no-binary=h5py h5py
+
+
+# Build Openmc from source
+cd $OPENMC_PATH && mkdir build app && cd build
+CC=gcc \
+CXX=g++ \
+HDF5_ROOT=$HDF5_PATH \
+cmake -Ddebug=on -Doptimize=on -DCMAKE_INSTALL_PREFIX=$OPENMC_PATH/app ..
+make
+make install
 
 cd ..
 pip install --upgrade-strategy only-if-needed -e .[test]
