@@ -1,4 +1,5 @@
 #! ~/bin/bash
+# Paths
 CURRENT=pwd
 PROJECTS=$HOME/projects
 XSDIR=$PROJECTS/cross-section-libraries
@@ -21,6 +22,9 @@ git push
 git checkout upstream/master
 git switch -c main
 git checkout main
+
+# Return to execution directory
+cd $CURRENT
 
 # Make cross sections directory
 if [[ ! -d "$XSDIR" ]]; then
