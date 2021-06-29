@@ -22,16 +22,12 @@ conda config --env --append channels conda-forge
 conda config --env --set pip_interop_enabled True
 
 # Create environments that have more recent versions of the software
-conda install numpy scipy pandas matplotlib uncertainties lxml pytest requests entrypoints pyyaml jupyterlab nb_conda_kernels --yes
+conda install numpy scipy pandas matplotlib uncertainties lxml pytest requests entrypoints pyyaml jupyterlab nb_conda_kernels cython vtk --yes
 
 # build h5py
 CC=gcc \
 HDF5_DIR=/usr/local/hdf5-$HDF5_VERSION \
 pip install --upgrade-strategy only-if-needed --no-binary=h5py h5py
-
-# Install cython, vtk for additional tests
-pip install cython
-pip install vtk
 
 cd ..
 pip install --upgrade-strategy only-if-needed -e .[test]
