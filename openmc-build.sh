@@ -18,7 +18,7 @@ conda create --name openmc-env --yes
 conda activate openmc-env
 
 # Configure conda to work with conda-forge 
-conda config --env --append channels conda-forge 
+conda config --env --add channels conda-forge 
 conda config --env --set pip_interop_enabled True
 
 # Create environments that have more recent versions of the software
@@ -31,4 +31,3 @@ pip install --upgrade-strategy only-if-needed --no-binary=h5py h5py
 
 cd ..
 pip install --upgrade-strategy only-if-needed -e .[test]
-
