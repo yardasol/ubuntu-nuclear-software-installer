@@ -1,6 +1,7 @@
 #! ~/bin/bash
 
 # Paths
+BRC=$HOME/.bashrc
 HDF5_PATH=$HOME/anaconda3/envs/openmc-env/
 OPENMC_PATH=$HOME/projects/openmc
 
@@ -32,3 +33,6 @@ make install
 
 cd ..
 pip install --upgrade-strategy only-if-needed -e .[test]
+
+# Add OpenMC to path
+echo "export PATH="$OPENMC_PATH/app/bin:$PATH"" >> $BRC
