@@ -32,6 +32,7 @@ cmake -Ddebug=on -Doptimize=on -DCMAKE_INSTALL_PREFIX=$OPENMC_PATH/app ..
 make
 make install
 
+# Build test suite
 cd ..
 pip install --upgrade-strategy only-if-needed -e .[test]
 
@@ -39,5 +40,5 @@ pip install --upgrade-strategy only-if-needed -e .[test]
 echo "export PATH="$OPENMC_PATH/app/bin:$PATH"" >> $BRC
 source $HOME/.bashrc
 
-# Return to script directory
+# Return to execution directory
 cd $CURRENT
