@@ -1,5 +1,8 @@
 #! ~/bin/bash
 
+# Paths
+CURRENT=`pwd`
+
 # Do we need to reinitialize the environment? 
 echo "recreate openmc environment?"
 echo "'y' if so, otherwise enter any other charater(s)"
@@ -56,3 +59,6 @@ fi
 cmake -D CMAKE_BUILD_TYPE=Release ../
 make
 make test
+
+# Return to execution directory
+cd $CURRENT
