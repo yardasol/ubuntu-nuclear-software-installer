@@ -36,12 +36,16 @@ if [[ $input = "y" ]];
 	pip install vtk
 
 	pip install --upgrade-strategy only-if-needed -e .[test]
+else
+	conda activate openmc-env
 fi
 
+
 cd $HOME/projects/openmc 
+
 # Download the test cross sections
 cd tools/ci
-source download-xs.sh
+./download-xs.sh
 
 # NJOY requires a bit more effort to get
 DIR=$HOME/projects/NJOY2016
