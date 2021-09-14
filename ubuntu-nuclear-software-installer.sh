@@ -1,3 +1,6 @@
+# Step 0: Stop the scripts if anything goes wrong
+set -e
+
 # Step 1: install software, build tools, and all dependencies
 source install.sh
 
