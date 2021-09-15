@@ -4,12 +4,6 @@ This repository contains some scripts I wrote to install software I use and cont
 This set of scripts installs, builds, and tests (if possible) various nuclear reactor physics and related software. 
 The scripts install the following:
 - [OpenMC](https://github.com/openmc-dev/openmc)
-- [MOOSE](https://github.com/idaholab/moose)
-- [Moltres](https://github.com/arfc/moltres)
-- [PyNE](https://github.com/pyne/pyne)
-
-There are also scripts for installing software individually. Software that currently has individual install scripts:
-- [TEMOA](https://github.com/TemoaProject/temoa)
 
 # Requirements
  - The user must fork all of the listed software tools (unless otherwise specified) listed below for the scripts to run successfully. 
