@@ -43,18 +43,6 @@ sudo apt-get install -y ${apt_package_list}
 # Install other dependencies
 cd $PROJECTS
 
-# MOAB
-if [[! -d $PROJECTS/moab ]]; then
-    git clone --branch Version5.1.0 --single-branch https://bitbucket.org/fathomteam/moab moab
-fi
-
-
-# DAGMC
-if [[! -d $PROJECTS/dagmc ]]; then
-    git clone git@github.com:svalinn/DAGMC
-fi
-
-
 # OpenMC
 if [[! -d $PROJECTS/openmc ]]; then
     git clone git@github.com:openmc-dev/openmc
