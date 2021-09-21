@@ -4,8 +4,11 @@ set -e
 # Step 1: install software, build tools, and all dependencies
 source install.sh
 
-# Step 2: build software from source
+# Step 2: setup conda environments
+source envs.sh
+
+# Step 3: build software from source
 source build.sh
 
-# Step 3: test that software works
+# Step 4: test that software works
 source test.sh
