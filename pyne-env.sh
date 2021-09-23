@@ -9,4 +9,6 @@ conda config --env --add channels conda-forge
 conda config --env --set pip_interop_enabled True
 
 # Create environments that have more recent versions of the software
-conda install numpy scipy pandas uncertainties lxml pytest requests entrypoints pyyaml cython vtk nose tables matplotlib jinja2 setuptools future jupyterlab nb_conda_kernels --yes
+conda install numpy scipy pandas uncertainties lxml pytest requests entrypoints pyyaml cython vtk nose matplotlib jinja2 setuptools future jupyterlab nb_conda_kernels --yes
+
+pip install --upgrade-strategy only-if-needed tables

@@ -13,7 +13,7 @@ fi
 GITHUB_UNAME=yardasol
 
 # Set up local git branch
-git clone git@github.com:$GITHUB_UNAME/pyne $HOME/projects/pyne
+git clone git@github.com:$GITHUB_UNAME/pyne $PROJECTS/pyne
 cd $PROJECTS/pyne
 git remote add upstream git@github.com:pyne/pyne
 git fetch upstream
@@ -25,7 +25,6 @@ cd $CURRENT
 
 # Check for necessary packages (apt)
 apt_package_list="software-properties-common \
-                  python3-pip \
                   wget \
                   build-essential \
                   git \
@@ -41,10 +40,8 @@ sudo apt-get -y update
 sudo apt-get install -y ${apt_package_list}
 
 # Install other dependencies
-cd $PROJECTS
-
 # OpenMC
-if [[! -d $PROJECTS/openmc ]]; then
-    git clone git@github.com:openmc-dev/openmc
+if [[ ! -d $PROJECTS/openmc ]]; then
+    git clone git@github.com:openmc-dev/openmc $PROJECTS/.
 fi
 
