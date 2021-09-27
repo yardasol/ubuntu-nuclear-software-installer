@@ -35,6 +35,6 @@ saltproc_conda_pkgs="pytables"
 saltproc_pip_pkgs="networkx \
                    pydotplus \
                    vitables"
-conda install ${shared_conda_pkgs} ${openmc_conda_pkgs} ${pyne_conda_pkgs} ${saltproc_pip_pkgs} --yes
+conda install ${shared_conda_pkgs} ${openmc_conda_pkgs} ${pyne_conda_pkgs} ${saltproc_conda_pkgs} --yes
 
 pip install --upgrade-strategy only-if-needed ${pyne_pip_pkgs} ${saltproc_pip_pkgs}
