@@ -4,6 +4,7 @@
 BRC=$HOME/.bashrc
 CURRENT=`pwd`
 HDF5_PATH=$CONDA_PREFIX
+#HDF5_PATH=/usr/lib/x86_64-linux-gnu/hdf5/serial
 OPENMC_PATH=$HOME/projects/openmc
 
 # build h5py
