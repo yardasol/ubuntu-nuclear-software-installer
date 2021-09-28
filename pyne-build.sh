@@ -4,8 +4,6 @@
 BRC=$HOME/.bashrc
 CURRENT=`pwd`
 PROJECTS=$HOME/projects
-HDF5_PATH=$CONDA_PREFIX
-#HDF5_PATH=/usr/lib/x86_64-linux-gnu/hdf5/serial
 PYNE_PATH=$PROJECTS/pyne
 
 # Build optional dependencies
@@ -13,10 +11,14 @@ PYNE_PATH=$PROJECTS/pyne
 ## OpenMC ##
 source openmc-build.sh
 
+# Reset the hdf5 path just in case
+conda activate pyne-env
+HDF5_PATH=/usr/lib/x86_64-linux-gnu/hdf5/serial
+#HDF5_PATH=$CONDA_PREFIX/lib
+
 # Build PyNE
 mkdir -p $PYNE_PATH/build $PYNE_PATH/app && cd $PYNE_PATH
 python setup.py install --clean \
-                        #--deps-root $CONDA_PREFIX \
                         --hdf5 $HDF5_PATH \
                         --prefix $PYNE_PATH/app \
                         --build-dir $PYNE_PATH/build
