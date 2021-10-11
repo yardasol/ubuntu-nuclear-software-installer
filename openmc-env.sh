@@ -26,4 +26,4 @@ openmc_conda_pkgs="pandas \
                    pytest-cov \
                    colorama"
 # Create environments that have more recent versions of the software
-conda install ${shared_conda_packages} ${openmc_conda_packages} --yes
+conda install ${shared_conda_pkgs} ${openmc_conda_pkgs} --yes
