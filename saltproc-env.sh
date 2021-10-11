@@ -32,4 +32,4 @@ saltproc_pip_pkgs="networkx \
                    vitables"
 conda install ${shared_conda_pkgs} ${openmc_conda_pkgs} ${saltproc_conda_pkgs} --yes
 
-pip install --upgrade-strategy only-if-needed ${pyne_pip_pkgs} ${saltproc_pip_pkgs}
+pip install --upgrade-strategy only-if-needed ${saltproc_pip_pkgs}
