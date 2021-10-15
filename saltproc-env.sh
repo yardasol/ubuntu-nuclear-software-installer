@@ -26,7 +26,7 @@ openmc_conda_pkgs="pandas \
                    coverage \
                    pytest-cov \
                    colorama"
-saltproc_conda_pkgs="pyne pytables vitables qtpy"
+saltproc_conda_pkgs="pyne pytables vitables qtpy argparse"
 saltproc_pip_pkgs="networkx \
                    pydotplus \
                    vitables"
