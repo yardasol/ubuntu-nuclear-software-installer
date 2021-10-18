@@ -16,7 +16,8 @@ shared_conda_pkgs="numpy \
                    cython \
                    matplotlib \
                    jupyterlab \
-                   nb_conda_kernels"
+                   nb_conda_kernels \
+                   mamba"
 openmc_conda_pkgs="pandas \
                    uncertainties \
                    lxml \
