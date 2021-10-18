@@ -7,6 +7,9 @@ conda activate openmc-env
 conda config --env --add channels conda-forge 
 conda config --env --set pip_interop_enabled True
 
+# Back to base
+conda activate base
+
 # Create environments that have more recent versions of the software
 shared_conda_pkgs="numpy \
                    scipy \
@@ -26,4 +29,4 @@ openmc_conda_pkgs="pandas \
                    pytest-cov \
                    colorama"
 # Create environments that have more recent versions of the software
-conda install ${shared_conda_pkgs} ${openmc_conda_pkgs} --yes
+mamba install ${shared_conda_pkgs} ${openmc_conda_pkgs} -n openmc-env -c conda-forge --yes
