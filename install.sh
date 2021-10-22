@@ -1,5 +1,5 @@
-# Install OpenMC
-source openmc-install.sh
+# Check input exists
+if [[ ! -d "$1" ]]; then
+	cd $1
+fi
 
-# Install saltproc
-source saltproc-install.sh
