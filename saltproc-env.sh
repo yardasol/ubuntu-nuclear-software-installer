@@ -8,13 +8,17 @@ conda activate saltproc-env
 conda config --env --add channels conda-forge 
 conda config --env --set pip_interop_enabled True
 
+# Return to base
+conda activate base
+
 # Create environments that have more recent versions of the software
 shared_conda_pkgs="numpy \
                    scipy \
                    cython \
                    matplotlib \
                    jupyterlab \
-                   nb_conda_kernels"
+                   nb_conda_kernels \
+                   mamba"
 openmc_conda_pkgs="pandas \
                    uncertainties \
                    lxml \
@@ -26,10 +30,17 @@ openmc_conda_pkgs="pandas \
                    coverage \
                    pytest-cov \
                    colorama"
-saltproc_conda_pkgs="pyne pytables vitables qtpy argparse"
+saltproc_conda_pkgs="pyne \
+                     pytables \
+                     vitables \
+                     qtpy" 
+                     
 saltproc_pip_pkgs="networkx \
                    pydotplus \
-                   vitables"
-conda install ${shared_conda_pkgs} ${openmc_conda_pkgs} ${saltproc_conda_pkgs} --yes
+                   vitables \
+                   sphinx \
+                   sphinx_rtd_theme"
 
-pip install --upgrade-strategy only-if-needed ${saltproc_pip_pkgs}
+mamba install ${shared_conda_pkgs} ${openmc_conda_pkgs} ${saltproc_conda_pkgs} ${saltproc_pip_pkgs} -n saltproc-env -c conda-forge --yes
+
+#pip install --upgrade-strategy only-if-needed ${saltproc_pip_pkgs}
