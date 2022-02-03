@@ -3,8 +3,8 @@
 conda create --name openmc-env --yes
 conda activate openmc-env
 
-# Configure conda to work with conda-forge 
-conda config --env --add channels conda-forge 
+# Configure conda to work with conda-forge
+conda config --env --add channels conda-forge
 conda config --env --set pip_interop_enabled True
 
 # Back to base
@@ -15,7 +15,7 @@ shared_conda_pkgs="numpy \
                    scipy \
                    cython \
                    matplotlib \
-                   jupyterlab \
+                   notebook \
                    nb_conda_kernels \
                    mamba"
 openmc_conda_pkgs="pandas \
