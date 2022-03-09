@@ -4,9 +4,11 @@ This repository contains some scripts I wrote to install software I use and cont
 This set of scripts installs, builds, and tests (if possible) various nuclear reactor physics and related software. 
 The scripts install the following:
 - [OpenMC](https://github.com/openmc-dev/openmc)
+- [PyNE]()
+- [SaltProc]()
 
 # Requirements
- - The user must fork all of the listed software tools (unless otherwise specified) listed below for the scripts to run successfully. 
+ - The user must have a fork of the desired software tool(s) (from the list of supported software below) for the scripts to run successfully. 
  - The user must have [conda](https://docs.conda.io/en/latest/) installed. Currently, the software only works if with anaconda. The `anaconda3` folder must be located in `home`. I recommend using Sam Dotson's script [ubuntu-post-installer](https://github.com/samgdotson/ubuntu-post-installer) to do this, as well as set up a few other useful pieces of software on ubuntu)
 
 # Installation
@@ -22,7 +24,7 @@ Boom. You're done
 To use the software, run the following in your terminal
 ```bash
 cd ubuntu-nuclear-software-installer
-source ubuntu-nuclear-software-installer.sh
+source ubuntu-nuclear-software-installer.sh CODENAME
 ```
 Boom. You're done.
 
