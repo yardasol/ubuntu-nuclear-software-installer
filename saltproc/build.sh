@@ -6,11 +6,10 @@ CURRENT=`pwd`
 SALTPROC_PATH=$HOME/projects/saltproc
 
 # Build saltproc from source
-cd $SALTPROC_PATH && mkdir -p build app
+cd $SALTPROC_PATH
 
 # Build and install
-python setup.py build
-python setup.py install
+pip install .
 
 # Return to execution directory
 cd $CURRENT

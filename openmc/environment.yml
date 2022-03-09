@@ -1,0 +1,21 @@
+name: openmc-env
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - scipy
+  - cython
+  - matplotlib
+  - notebook
+  - nb_conda_kernels
+  - pandas
+  - uncertainties
+  - lxml
+  - pytest
+  - requests
+  - entrypoints
+  - pyyaml
+  - vtk
+  - coverage
+  - pytest-cov
+  - colorama

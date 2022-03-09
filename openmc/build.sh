@@ -1,4 +1,6 @@
 #! ~/bin/bash
+# Activate conda environment
+conda activate openmc-env
 
 # Paths
 BRC=$HOME/.bashrc

@@ -1,0 +1,15 @@
+name: pyne-env
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - scipy
+  - cython
+  - matplotlib
+  - notebook
+  - nb_conda_kernels
+  - pytables
+  - pytest
+  - pip:
+    - Jinja2
+
