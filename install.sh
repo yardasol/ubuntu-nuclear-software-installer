@@ -1,7 +1,4 @@
 #! ~/bin/bash
-# Paths
-
-CURRENT=`pwd`
 
 # Make projects directory
 if [[ ! -d "$PROJECTS" ]]; then

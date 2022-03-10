@@ -1,16 +1,13 @@
 #! ~/bin/bash
 
-# Paths
-CURRENT=`pwd`
-
-# Do we need to reinitialize the environment? 
+# Do we need to reinitialize the environment?
 echo "recreate openmc environment?"
 echo "'y' if so, otherwise enter any other charater(s)"
 
 read input
 
 if [[ $input = "y" ]];
-	then 
+	then
 	# Remove current openmc environment
 	conda activate base
 	conda env remove -n openmv-env
@@ -19,8 +16,8 @@ if [[ $input = "y" ]];
 	conda create --name openmc-env --yes
 	conda activate openmc-env
 
-	# Configure conda to work with conda-forge 
-	conda config --env --append channels conda-forge 
+	# Configure conda to work with conda-forge
+	conda config --env --append channels conda-forge
 	conda config --env --set pip_interop_enabled True
 
 	# Create environments that have more recent versions of the software
@@ -41,7 +38,7 @@ else
 fi
 
 
-cd $HOME/projects/openmc 
+cd $HOME/projects/openmc
 
 # Download the test cross sections
 cd tools/ci

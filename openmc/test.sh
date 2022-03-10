@@ -1,8 +1,5 @@
 #! ~/bin/bash
 
-# Paths
-CURRENT=`pwd`
-
 # Initialize envirnoment variables for openmc
 export OPENMC_CROSS_SECTIONS=$HOME/nndc_hdf5/cross_sections.xml
 export OPENMC_ENDF_DATA=$HOME/endf-b-vii.1
