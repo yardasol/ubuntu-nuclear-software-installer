@@ -1,0 +1,52 @@
+package:
+  name: python
+  version: 3.9.10
+
+source:
+  - path: ../../../../projects/cpython
+
+build:
+  activate_in_scripts: true
+  detect_binary_files_with_prefix: true
+  run_exports:
+    noarch:
+      - python
+  string: debug
+  skip_compile_pyc:
+    - '*.py'
+  no_link: null
+
+
+requirements:
+  build:
+    - make
+    - openssl
+    - zlib
+    - libffi
+    - ncurses
+    - readline
+    - sqlite
+    - tk
+    - xz
+  run:
+    - bzip2
+    - libffi
+    - ncurses
+    - openssl
+    - readline
+    - sqlite
+    - tk
+    - tzdata
+    - xz
+
+#test:
+#  commands:
+#    - python -V
+#    - python3 -V
+#    - 2to3 -h
+#    - pydoc -h
+#    - python3-config --help
+about:
+  home: http://www.python.org/
+  license: PSF
+  summary: general purpose programming language
