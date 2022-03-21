@@ -17,8 +17,20 @@ then
 fi
 cd $CODEPATH
 git fetch upstream
+if [[ ! $(git branch --list $BRANCH) ]]
+then
+    if [[ $TAG ]]
+    then
+        git checkout tags/tag -b $BRANCH
+    else
+        git checkout upstream/$BRANCH
+        git switch -c $BRANCH
+    fi
+else
+    git checkout $BRANCH
+fi
 git merge upstream/$BRANCH
-git push
+git push --set-upstream origin $BRANCH
 
 # Return to execution directory
 cd $CURRENT
