@@ -4,8 +4,9 @@ This repository contains some scripts I wrote to install software I use and cont
 This set of scripts installs, builds, and tests (if possible) various nuclear reactor physics and related software. 
 The scripts install the following:
 - [OpenMC](https://github.com/openmc-dev/openmc)
-- [PyNE]()
-- [SaltProc]()
+- [PyNE](https://github.com/pyne/pyne)
+- [SaltProc](https://github.com/arfc/saltproc)
+- [CPython](https://github.com/python/cpython)
 
 # Requirements
  - The user must have a fork of the desired software tool(s) (from the list of supported software below) for the scripts to run successfully. 
@@ -21,10 +22,13 @@ Boom. You're done
 # Usage
 ***NOTE:*** The scripts have my directory structure hard-coded in right now, so the instructions below will not work as-is without some tinkering on your part. This will be changed in the near future to be more generalized.
 
+The following variables should be set by the end user:
+ - `GITHUB_UNAME` in `install.bash`
+
 To use the software, run the following in your terminal
 ```bash
 cd ubuntu-nuclear-software-installer
-source ubuntu-nuclear-software-installer.sh CODENAME
+source ubuntu-nuclear-software-installer.bash CODENAME
 ```
 Boom. You're done.
 
