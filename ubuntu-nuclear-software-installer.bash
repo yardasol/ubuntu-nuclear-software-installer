@@ -13,25 +13,25 @@ PROJECTS=$HOME/projects
 CODEPATH=$PROJECTS/$CODENAME
 
 # Step 0: Get parameters for running the install, build, and test scripts
-source $CODENAME/get-params.sh
+source $CODENAME/get-params.bash
 
 if [[ "$2" == "--clean" || ! -d $CODEPATH ]]; then
     # Step 1: install software, build tools, and all dependencies
     echo "Installing $CODENAME"
-    source install.sh
+    source install.bash
 
     # Step 2: setup conda environments
     echo "Creating environment for $CODENAME"
-    source env.sh
+    source env.bash
 
     # Step 3: build software from source
     echo "Building $CODENAME"
-    source $CODENAME/build.sh
+    source $CODENAME/build.bash
 fi
 
 # Step 4: test that software works
 echo "Testing $CODENAME"
 if [[ -f $CODENAME/pretest.sh ]]; then
-    source $CODENAME/pretest.sh
+    source $CODENAME/pretest.bash
 fi
-source $CODENAME/test.sh
+source $CODENAME/test.bash
