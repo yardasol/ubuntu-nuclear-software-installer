@@ -6,7 +6,7 @@ export OPENMC_ENDF_DATA=$HOME/endf-b-vii.1
 export PATH=$HOME/projects/NJOY2016/bin:$PATH
 
 # Test OpenMC
-cd $HOME/projects/openmc/tests
+cd $CODEPATH/tests
 conda activate openmc-env
 pytest
 

@@ -36,5 +36,5 @@ git push --set-upstream origin $BRANCH
 cd $CURRENT
 
 if [[ $INSTALLEXTRA -eq 1 ]]; then
-    source $CODENAME/install-extra.sh
+    source $CODENAME/install-extra.bash
 fi

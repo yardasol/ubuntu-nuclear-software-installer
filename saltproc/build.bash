@@ -3,10 +3,9 @@
 # Paths
 BRC=$HOME/.bashrc
 CURRENT=`pwd`
-SALTPROC_PATH=$HOME/projects/saltproc
 
 # Build saltproc from source
-cd $SALTPROC_PATH
+cd $CODEPATH
 
 # Build and install
 pip install .

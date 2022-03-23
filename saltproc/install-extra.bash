@@ -6,7 +6,7 @@ if [[ ! -d "$XSDIR" ]]; then
 fi
 
 # Install cross sections
-source $SALTPROC_PATH/scripts/xsdir/process_j312.bash
+source $CODEPATH/scripts/xsdir/process_j312.bash
 
 # Add .xsdata file to PATH (to be created)
 echo "export SERPENT_DATA="$XSDIR"" >> $BRC

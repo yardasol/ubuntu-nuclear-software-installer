@@ -5,7 +5,7 @@ conda activate openmc-env
 # Paths
 #HDF5_PATH=$CONDA_PREFIX
 HDF5_PATH=/usr
-OPENMC_PATH=$CODEPATH
+CODEPATH=$CDEPATH
 
 # build h5py
 CC=gcc \
@@ -14,11 +14,11 @@ pip install --upgrade-strategy only-if-needed --no-binary=h5py h5py
 
 
 # Build Openmc from source
-cd $OPENMC_PATH && mkdir -p build app && cd build
+cd $CODEPATH && mkdir -p build app && cd build
 CC=gcc \
 CXX=g++ \
 HDF5_ROOT=$HDF5_PATH \
-cmake -Ddebug=on -Doptimize=on -DCMAKE_INSTALL_PREFIX=$OPENMC_PATH/app ..
+cmake -Ddebug=on -Doptimize=on -DCMAKE_INSTALL_PREFIX=$CODEPATH/app ..
 make
 make install
 
@@ -27,12 +27,12 @@ cd ..
 pip install --upgrade-strategy only-if-needed -e .[test]
 
 # Add OpenMC to path
-if [[ $(grep "export PATH="$OPENMC_PATH/app/bin:'$PATH'"" $BRC) ]]
+if [[ $(grep "export PATH="$CODEPATH/app/bin:'$PATH'"" $BRC) ]]
 then
     echo "OpenMC already on PATH"
 else
-    echo "export PATH="$OPENMC_PATH/app/bin:'$PATH'"" >> $BRC
-    export PATH="$OPENMC_PATH/app/bin:'$PATH'"
+    echo "export PATH="$CODEPATH/app/bin:'$PATH'"" >> $BRC
+    export PATH="$CODEPATH/app/bin:'$PATH'"
 fi
 #source $HOME/.bashrc
 
