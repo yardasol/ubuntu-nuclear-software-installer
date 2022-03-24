@@ -21,7 +21,7 @@ if [[ ! $(git branch --list $BRANCH) ]]
 then
     if [[ $TAG ]]
     then
-        git checkout tags/tag -b $BRANCH
+        git checkout tags/$TAG -b $BRANCH
     else
         git checkout upstream/$BRANCH
         git switch -c $BRANCH

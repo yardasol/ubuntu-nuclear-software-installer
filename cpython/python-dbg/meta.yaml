@@ -19,7 +19,15 @@ build:
 
 requirements:
   build:
+#    - gcc-9
+#    - g++-9
+#    - libx11-devel
+#    - xorg-x11-proto-devel
+    - libnsl
+    - libuuid
     - make
+    - libtool
+    - pkg-config
     - openssl
     - zlib
     - libffi
@@ -39,13 +47,13 @@ requirements:
     - tzdata
     - xz
 
-#test:
-#  commands:
-#    - python -V
-#    - python3 -V
-#    - 2to3 -h
-#    - pydoc -h
-#    - python3-config --help
+test:
+  commands:
+    - python -V
+    - python3 -V
+    - 2to3 -h
+    - pydoc -h
+    - python3-config --help
 about:
   home: http://www.python.org/
   license: PSF

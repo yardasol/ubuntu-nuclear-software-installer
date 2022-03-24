@@ -1,5 +1,9 @@
-make clean
-./configure --with-pydebug --with-cxx-main=gcc-9 CC=gcc-9 CXX=g++-9 --prefix=$PREFIX
+./configure --with-pydebug \
+	--with-cxx-main=gcc-9 \
+	CC=gcc-9 \
+	CXX=g++-9 \
+	CPPFLAGS=-I${PREFIX}/include \
+	--prefix=$PREFIX
 make -s -j8
 make install
 
