@@ -1,0 +1,4 @@
+              /* Pointer to expected weight xs */
+
+              rea = (long)RDB[nuc + NUCLIDE_PTR_EXPWGTXS];
+              CheckPointer(FUNCTION_NAME, "(rea)", DATA_ARRAY, rea);

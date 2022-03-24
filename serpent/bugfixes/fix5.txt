@@ -1,0 +1,7 @@
+   if (mpiid > 0)
+     return;
+
+/* Check corrector step */
+
+  if ((long)RDB[DATA_BURN_STEP_PC] == CORRECTOR_STEP)
+    return;

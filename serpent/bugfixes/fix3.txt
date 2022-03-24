@@ -1,0 +1,7 @@
+              /* Pointer to expected weight xs */
+
+              if (RDB[DATA_USE_BRANCHLESS] == YES)
+                {
+                  rea = (long)RDB[nuc + NUCLIDE_PTR_EXPWGTXS];
+                  CheckPointer(FUNCTION_NAME, "(rea)", DATA_ARRAY, rea);
+                }

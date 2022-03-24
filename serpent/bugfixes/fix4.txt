@@ -1,0 +1,10 @@
+       for (i = 0; i < 2; i++)
+         {
+
+          /* Pointer to elastic */
+
+          rea = (long)RDB[nuc + NUCLIDE_PTR_ELAXS];
+          CheckPointer(FUNCTION_NAME, "(ela)", DATA_ARRAY, rea);
+
+          /* Modify both, the elastic scattering xs and the */
+          /* associated expected weight xs if it exists */
