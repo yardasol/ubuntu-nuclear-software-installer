@@ -1,6 +1,6 @@
 #! ~/bin/bash
-#HDF5_PATH=$CONDA_PREFIX
-HDF5_PATH=/usr
+HDF5_PATH=$CONDA_PREFIX
+#HDF5_PATH=/usr
 BT=debug
 
 # Activate conda environment
@@ -19,6 +19,7 @@ python setup.py install \
     -D CMAKE_Fortran_COMPILER=gfortran-9 \
     -j 8 \
     --hdf5 $HDF5_PATH \
+    --no_spatial_solvers \
     --build-dir build
 
 cd

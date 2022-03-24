@@ -4,6 +4,8 @@ channels:
   - file:///home/ooblack/miniconda3/envs/cpython-env/conda-bld/
 dependencies:
   - python=3.9.10=debug
+  - hdf5=1.10.6
+#  - hdf5=1.12.1
   - numpy
   - scipy
   - cython
