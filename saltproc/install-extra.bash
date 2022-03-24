@@ -11,4 +11,5 @@ source $CODEPATH/scripts/xsdata/process_j312.bash
 # Add .xsdata file to PATH (to be created)
 echo "export SERPENT_DATA="$XSDIR"" >> $BRC
 echo "export SERPENT_ACELIB="$XSDIR/jeff312/sss_jeff312.xsdata"" >> $BRC
+
 source $HOME/.bashrc

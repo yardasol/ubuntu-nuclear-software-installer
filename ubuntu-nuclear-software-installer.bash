@@ -8,6 +8,7 @@ source $CONDA_PATH/etc/profile.d/conda.sh
 # Paths
 CURRENT=`pwd`
 CODENAME=$1
+COREPATH=$CURRENT/$CODENAME
 BRC=$HOME/.bashrc
 PROJECTS=$HOME/projects
 CODEPATH=$PROJECTS/$CODENAME
@@ -16,13 +17,19 @@ CODEPATH=$PROJECTS/$CODENAME
 source $CODENAME/get-params.bash
 
 if [[ "$2" == "--clean" || ! -d $CODEPATH ]]; then
-    # Step 1: install software, build tools, and all dependencies
-    echo "Installing $CODENAME"
-    source install.bash
+    if [[ $CODENAME != "serpent" ]]
+    then
+        # Step 1: install software, build tools, and all dependencies
+        echo "Installing $CODENAME"
+        source install.bash
 
-    # Step 2: setup conda environments
-    echo "Creating environment for $CODENAME"
-    source env.bash
+        # Step 2: setup conda environments
+        echo "Creating environment for $CODENAME"
+        source env.bash
+    else
+        echo "Setting up closed-source software files"
+        source $CODENAME/install-extra.bash
+    fi
 
     # Step 3: build software from source
     echo "Building $CODENAME"
