@@ -8,6 +8,9 @@ if [[ ! -d "$XSDIR" ]]; then
 	mkdir $XSDIR
 fi
 
+# download cross section dir convert script
+wget -O $XSDIR/xsdirconvert.pl http://montecarlo.vtt.fi/download/xsdirconvert.pl
+
 # Make serpent directory
 if [[ ! -d "$SERPENTDIR" ]]; then
     mkdir $SERPENTDIR
@@ -49,11 +52,13 @@ echo "bugfix 1"
 sed -i "s/$(cat $BFPATH/bug1.txt)/$(cat $BFPATH/fix1.txt)/g" processsymmetries.c
 echo "bugfix 2"
 sed -i "$(head -n 1 $BFPATH/bug2.txt)/,/$(tail -n 1 $BFPATH/bug2.txt)/c $(cat $BFPATH/fix2.txt)" xsplotter.c
+#sed -i "223,226c $(cat $BFPATH/fix3.txt)" adjustsabdata.c
+#echo "bugfix 3"
+#sed -i "$(head -n 1 $BFPATH/bug3.txt)/,/$(tail -n 1 $BFPATH/bug3.txt)/c $(cat $BFPATH/fix3.txt)" xsplotter.c
+#sed -i "321,324c $(cat $BFPATH/fix3.txt)" adjustsabdata.c
 echo "bugfix 3"
-sed -i "$(head -n 1 $BFPATH/bug3.txt)/,/$(tail -n 1 $BFPATH/bug3.txt)/c $(cat $BFPATH/fix3.txt)" xsplotter.c
-echo "bugfix 4"
 sed -i "169c $(cat $BFPATH/fix4.txt)" adjustsabdata.c
-echo "bugfix 5"
+echo "bugfix 4"
 sed -i "37c $(cat $BFPATH/fix5.txt)" fissmtxoutput.c
 
 # Modify serpent Makefile
@@ -70,7 +75,5 @@ rm spath.txt
 
 # Add serpent executable to PATH
 echo "export PATH="$SERPENTAPP:\$PATH"" >> $BRC
-
-source $HOME/.bashrc
 
 cd $CURRENT
