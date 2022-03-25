@@ -42,8 +42,5 @@ Boom. You're done.
 # Contributing
 Please read [CONTRIBUTING.md](https://github.com/yardasol/ubuntu-nuclear-software-installer/blob/main/CONTRIBUTING.md) before making any changes
 
-# License
-These scripts are currently not licensed. I need to review the licenses of the software tools to see if I can do this, and if so, what my options are.
-
 # Credits
 The [ubuntu-post-installer](https://github.com/samgdotson/ubuntu-post-installer) and [awesome-nuclear](https://github.com/paulromano/awesome-nuclear) repositories inspired this project
