@@ -1,16 +1,19 @@
 #! ~/bin/bash
-
 # Paths
-BRC=$HOME/.bashrc
-CURRENT=`pwd`
+SERPENTAPP=$CODEPATH/app
 
-# Build serpent from source
-cd $CODEPATH
+# Make serpent app directory
+if [[ ! -d "$SERPENTAPP" ]]; then
+    mkdir $SERPENTAPP
+fi
 
 # Build and install
-cd src
+cd $CODEPATH/src
 make
-source $BRC
+
+# Add serpent executable to PATH
+mv sss2 $SERPENTAPP/.
+echo "export PATH="$SERPENTAPP:\$PATH"" >> $BRC
 
 # Return to execution directory
 cd $CURRENT

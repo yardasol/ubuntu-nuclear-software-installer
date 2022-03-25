@@ -1,7 +1,6 @@
 XSDIR=$PROJECTS/cross-section-libraries 
-SERPENTDIR=$PROJECTS/serpent
+SERPENTDIR=$CODEPATH
 SERPENTSRC=$SERPENTDIR/src
-SERPENTAPP=$SERPENTDIR/app
 
 # Make cross sections directory
 if [[ ! -d "$XSDIR" ]]; then
@@ -19,11 +18,6 @@ fi
 # Make serpent src directory
 if [[ ! -d "$SERPENTSRC" ]]; then
     mkdir $SERPENTSRC
-fi
-
-# Make serpent app directory
-if [[ ! -d "$SERPENTAPP" ]]; then
-    mkdir $SERPENTAPP
 fi
 
 # Extract serpent
@@ -59,13 +53,5 @@ echo "comment out LDFLAGS"
 sed -i "s/LDFLAGS += -lgd/#LDFLAGS += -lgd/g" Makefile
 echo "uncomment CFLAGS"
 sed -i "s/#CFLAGS += -DNO_GFX_MODE/CFLAGS += -DNO_GFX_MODE/g" Makefile
-echo "change EXE path"
-echo "EXE     = $SERPENTAPP/sss2" > spath.txt
-sed -i 's/\//\\\//g' spath.txt
-sed -i "s/EXE     = sss2/$(cat spath.txt)/g" Makefile
-rm spath.txt
-
-# Add serpent executable to PATH
-echo "export PATH="$SERPENTAPP:\$PATH"" >> $BRC
 
 cd $CURRENT
