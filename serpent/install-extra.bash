@@ -42,36 +42,35 @@ cd $SERPENTSRC
 BFPATH=$COREPATH/bugfixes
 
 # Apply bugfixes
-BUG1="$(cat $BFPATH/bug1.txt)"
-BUG2="$(cat $BFPATH/bug2.txt)"
-BUG3="$(cat $BFPATH/bug3.txt)"
-BUG4="$(cat $BFPATH/bug4.txt)"
-BUG5="$(cat $BFPATH/bug5.txt)"
-FIX1="$(cat $BFPATH/fix1.txt)"
-FIX2="$(cat $BFPATH/fix2.txt)"
-FIX3="$(cat $BFPATH/fix3.txt)"
-FIX4="$(cat $BFPATH/fix4.txt)"
-FIX5="$(cat $BFPATH/fix5.txt)"
 
 # this isn't working for some reason...
 # see https://stackoverflow.com/questions/31056599/bash-sed-replace-text-with-file-content
 echo "bugfix 1"
-sed -i "s/$BUG1/$FIX1/g" processsymmetries.c
-#echo "bugfix 2"
-#sed -i "s/$BUG2/$FIX2/g" xsplotter.c
+sed -i "s/$(cat $BFPATH/bug1.txt)/$(cat $BFPATH/fix1.txt)/g" processsymmetries.c
+echo "bugfix 2"
+sed -i "$(head -n 1 $BFPATH/bug2.txt)/,/$(tail -n 1 $BFPATH/bug2.txt)/c $(cat $BFPATH/fix2.txt)" xsplotter.c
 echo "bugfix 3"
-sed -i "s/'$BUG3'/'$FIX3'/g" xsplotter.c
+sed -i "$(head -n 1 $BFPATH/bug3.txt)/,/$(tail -n 1 $BFPATH/bug3.txt)/c $(cat $BFPATH/fix3.txt)" xsplotter.c
 echo "bugfix 4"
-sed -i "s/$BUG4/$FIX4/g" adjustsabdata.c
+sed -i "169c $(cat $BFPATH/fix4.txt)" adjustsabdata.c
 echo "bugfix 5"
-sed -i "s/$BUG5/$FIX5/g" fissmtxoutput.c
+sed -i "37c $(cat $BFPATH/fix5.txt)" fissmtxoutput.c
 
 # Modify serpent Makefile
-sed -i "LDFLAGS += -lgd/#LDFLAGS += -lgd/g" Makefile
+echo "comment out LDFLAGS"
+sed -i "s/LDFLAGS += -lgd/#LDFLAGS += -lgd/g" Makefile
+echo "uncomment CFLAGS"
 sed -i "s/#CFLAGS += -DNO_GFX_MODE/CFLAGS += -DNO_GFX_MODE/g" Makefile
-sed -i "s/EXE     = sss2/EXE     = $SERPENTAPP\/sss2/g" Makefile
+echo "change EXE path"
+echo "EXE     = $SERPENTAPP/sss2" > spath.txt
+sed -i 's/\//\\\//g' spath.txt
+echo "change EXE path"
+sed -i "s/EXE     = sss2/$(cat spath.txt)/g" Makefile
+rm spath.txt
 
 # Add serpent executable to PATH
 echo "export PATH="$SERPENTAPP:\$PATH"" >> $BRC
 
 source $HOME/.bashrc
+
+cd $CURRENT
