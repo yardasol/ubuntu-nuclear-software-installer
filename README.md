@@ -6,8 +6,12 @@ The scripts install the following:
 - [OpenMC](https://github.com/openmc-dev/openmc)
 - [PyNE](https://github.com/pyne/pyne)
 - [SaltProc](https://github.com/arfc/saltproc)
-- [CPython](https://github.com/python/cpython) (builds python with debugging symbols turned on as a conda package. This is useful for using interactive debuggers (e.g. `gdb`) on software like PyNE that use both C and Python)
-- [Serpent2](http://montecarlo.vtt.fi/) **note**: since serpent is export-controlled software, you'll need to obtain the source code on your own. All information used to modify install flags and apply bug fixes can be found on the [installation page in the Serpent wiki](https://serpent.vtt.fi/mediawiki/index.php/Installing_and_running_Serpent) and the [Serpent forums](https://ttuki.vtt.fi/serpent/index.php?sid=3038d3b423fe27ac9e5a75c11425fa00) respectively. See `serpent/bugfixes/` for an itemized list of
+- [CPython](https://github.com/python/cpython) 
+
+  builds python with debugging symbols turned on as a conda package. This is useful for using interactive debuggers (e.g. `gdb`) on software like PyNE that use both C and Python)
+- [Serpent2](http://montecarlo.vtt.fi/) 
+ 
+  **note**: since serpent is export-controlled software, you'll need to obtain the source code on your own. All information used to modify install flags and apply bug fixes can be found on the [installation page in the Serpent wiki](https://serpent.vtt.fi/mediawiki/index.php/Installing_and_running_Serpent) and the [Serpent forums](https://ttuki.vtt.fi/serpent/index.php?sid=3038d3b423fe27ac9e5a75c11425fa00) respectively. See `serpent/bugfixes/` for an itemized list of
     each bug.
 
 
@@ -43,4 +47,20 @@ Boom. You're done.
 Please read [CONTRIBUTING.md](https://github.com/yardasol/ubuntu-nuclear-software-installer/blob/main/CONTRIBUTING.md) before making any changes
 
 # Credits
-The [ubuntu-post-installer](https://github.com/samgdotson/ubuntu-post-installer) and [awesome-nuclear](https://github.com/paulromano/awesome-nuclear) repositories inspired this project
+The [ubuntu-post-installer](https://github.com/samgdotson/ubuntu-post-installer) and [awesome-nuclear](https://github.com/paulromano/awesome-nuclear) repositories inspired this project. The following wikis, forums, and docs were invaluable resources in writing these scripts:
+- `openmc/`
+  - [OpenMC docs](https://docs.openmc.org)
+  - [OpenMC forums](https://openmc.discourse.group/)
+- `pyne/`
+  - [PyNE docs](https://pyne.io/)
+  - [PyNE forums](https://groups.google.com/g/pyne-dev?pli=1)
+- `cpython/`
+  - [Python Developers guide](https://devguide.python.org/setup/)
+  - [`conda-build` documentation](https://docs.conda.io/projects/conda-build/en/latest/)
+  - [`python-feedstock` recipe](https://github.com/conda-forge/python-feedstock/tree/main/recipe) 
+- `serpent/`
+  - [The serpent forums](https://ttuki.vtt.fi/serpent/index.php)
+  - [Serpent wiki](https://serpent.vtt.fi/mediawiki/index.php/Installing_and_running_Serpent)
+- `saltproc/`
+  - All of the above
+  - [The SaltProc docs](https://arfc.github.io/saltproc/)
