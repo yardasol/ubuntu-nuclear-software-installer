@@ -1,2 +1,0 @@
-   \if (mpiid > 0)
-     return\;

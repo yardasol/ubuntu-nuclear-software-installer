@@ -45,21 +45,14 @@ cd $SERPENTSRC
 BFPATH=$COREPATH/bugfixes
 
 # Apply bugfixes
-
-# this isn't working for some reason...
-# see https://stackoverflow.com/questions/31056599/bash-sed-replace-text-with-file-content
 echo "bugfix 1"
 sed -i "s/$(cat $BFPATH/bug1.txt)/$(cat $BFPATH/fix1.txt)/g" processsymmetries.c
 echo "bugfix 2"
 sed -i "$(head -n 1 $BFPATH/bug2.txt)/,/$(tail -n 1 $BFPATH/bug2.txt)/c $(cat $BFPATH/fix2.txt)" xsplotter.c
-#sed -i "223,226c $(cat $BFPATH/fix3.txt)" adjustsabdata.c
-#echo "bugfix 3"
-#sed -i "$(head -n 1 $BFPATH/bug3.txt)/,/$(tail -n 1 $BFPATH/bug3.txt)/c $(cat $BFPATH/fix3.txt)" xsplotter.c
-#sed -i "321,324c $(cat $BFPATH/fix3.txt)" adjustsabdata.c
 echo "bugfix 3"
-sed -i "169c $(cat $BFPATH/fix4.txt)" adjustsabdata.c
+sed -i "169c $(cat $BFPATH/fix3.txt)" adjustsabdata.c
 echo "bugfix 4"
-sed -i "37c $(cat $BFPATH/fix5.txt)" fissmtxoutput.c
+sed -i "37c $(cat $BFPATH/fix4.txt)" fissmtxoutput.c
 
 # Modify serpent Makefile
 echo "comment out LDFLAGS"
@@ -69,7 +62,6 @@ sed -i "s/#CFLAGS += -DNO_GFX_MODE/CFLAGS += -DNO_GFX_MODE/g" Makefile
 echo "change EXE path"
 echo "EXE     = $SERPENTAPP/sss2" > spath.txt
 sed -i 's/\//\\\//g' spath.txt
-echo "change EXE path"
 sed -i "s/EXE     = sss2/$(cat spath.txt)/g" Makefile
 rm spath.txt
 

@@ -1,10 +1,5 @@
-       \
-         {\
 \
-          \/\* Pointer to elastic \*\/\
+  \/\* Check corrector step \*\/\
 \
-          rea = (long)RDB[nuc + NUCLIDE_PTR_ELAXS]\;\
-          CheckPointer(FUNCTION_NAME, "(ela)", DATA_ARRAY, rea)\;\
-\
-          \/\* Modify both, the elastic scattering xs and the \*\/\
-          \/\* associated expected weight xs if it exists \*\/
+  if ((long)RDB[DATA_BURN_STEP_PC] == CORRECTOR_STEP)\
+    return\;
