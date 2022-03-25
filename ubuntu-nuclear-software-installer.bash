@@ -11,10 +11,23 @@ CODENAME=$1
 COREPATH=$CURRENT/$CODENAME
 BRC=$HOME/.bashrc
 PROJECTS=$HOME/projects
+XSDIR=$PROJECTS/cross-section-libraries
 CODEPATH=$PROJECTS/$CODENAME
+
+# Make projects directory
+if [[ ! -d "$PROJECTS" ]]; then
+	mkdir $PROJECTS
+fi
+
+# Make cross section data directory
+if [[ ! -d $XSDIR ]]
+then
+    mkdir $XSDIR
+fi
 
 # Step 0: Get parameters for running the install, build, and test scripts
 source $CODENAME/get-params.bash
+
 
 if [[ "$2" == "--clean" || ! -d $CODEPATH ]]; then
     if [[ $CODENAME != "serpent" ]]

@@ -1,18 +1,11 @@
-XSDIR=$PROJECTS/cross-section-libraries 
-SERPENTDIR=$CODEPATH
-SERPENTSRC=$SERPENTDIR/src
-
-# Make cross sections directory
-if [[ ! -d "$XSDIR" ]]; then
-	mkdir $XSDIR
-fi
+SERPENTSRC=$CODEPATH/src
 
 # download cross section dir convert script
 wget -O $XSDIR/xsdirconvert.pl http://montecarlo.vtt.fi/download/xsdirconvert.pl
 
 # Make serpent directory
-if [[ ! -d "$SERPENTDIR" ]]; then
-    mkdir $SERPENTDIR
+if [[ ! -d "$CODEPATH" ]]; then
+    mkdir $CODEPATH
 fi
 
 # Make serpent src directory
@@ -21,7 +14,7 @@ if [[ ! -d "$SERPENTSRC" ]]; then
 fi
 
 # Extract serpent
-cd $SERPENTDIR
+cd $CODEPATH
 if [[ ! -d $CODEPATH/xsdata ]]
 then
     echo "Cross setions not extracted"

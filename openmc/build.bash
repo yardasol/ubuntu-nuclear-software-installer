@@ -5,7 +5,6 @@ conda activate openmc-env
 # Paths
 #HDF5_PATH=$CONDA_PREFIX
 HDF5_PATH=/usr
-CODEPATH=$CDEPATH
 
 # build h5py
 CC=gcc \

@@ -1,10 +1,3 @@
-XSDIR=$PROJECTS/cross-section-libraries
-
-# Make cross sections directory
-if [[ ! -d "$XSDIR" ]]; then
-	mkdir $XSDIR
-fi
-
 # Download cross sections
 wget -O - https://anl.box.com/shared/static/9igk353zpy8fn9ttvtrqgzvw1vtejoz6.xz | tar -C $XSDIR -xJ
 

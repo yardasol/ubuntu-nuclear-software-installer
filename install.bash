@@ -1,10 +1,5 @@
 #! ~/bin/bash
 
-# Make projects directory
-if [[ ! -d "$PROJECTS" ]]; then
-	mkdir $PROJECTS
-fi
-
 # github username
 GITHUB_UNAME=yardasol
 
