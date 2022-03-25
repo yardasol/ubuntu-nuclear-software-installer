@@ -6,11 +6,13 @@ The scripts install the following:
 - [OpenMC](https://github.com/openmc-dev/openmc)
 - [PyNE](https://github.com/pyne/pyne)
 - [SaltProc](https://github.com/arfc/saltproc)
-- [CPython](https://github.com/python/cpython)
+- [CPython](https://github.com/python/cpython) (builds python with debugging symbols turned on as a conda package. This is useful for using interactive debuggers (e.g. `gdb`) on software like PyNE that use both C and Python)
+- [Serpent2](http://montecarlo.vtt.fi/) **note**: since serpent is export-controlled software, you'll need to obtain the source code on your own. All information used to modify install flags and apply bug fixes can be found on the [Serpent wiki](https://serpent.vtt.fi/mediawiki/index.php/Main_Page) and the [Serpent forums](https://ttuki.vtt.fi/serpent/index.php?sid=3038d3b423fe27ac9e5a75c11425fa00) respectively.
+
 
 # Requirements
- - The user must have a fork of the desired software tool(s) (from the list of supported software below) for the scripts to run successfully. 
- - The user must have [conda](https://docs.conda.io/en/latest/) installed. Currently, the software only works if with anaconda. The `anaconda3` folder must be located in `home`. I recommend using Sam Dotson's script [ubuntu-post-installer](https://github.com/samgdotson/ubuntu-post-installer) to do this, as well as set up a few other useful pieces of software on ubuntu)
+ - The user must have a fork of the desired software tool(s) (if a public repository exists) for the scripts to run successfully. 
+ - The user must have [conda](https://docs.conda.io/en/latest/) installed for software that uses python. Currently, the software only works if with anaconda. The `anaconda3` folder must be located in `home`. I recommend using Sam Dotson's script [ubuntu-post-installer](https://github.com/samgdotson/ubuntu-post-installer) to do this, as well as set up a few other useful pieces of software on ubuntu)
 
 # Installation
 Assuming you have set up [ssh keys](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), run the following in your terminal
@@ -20,16 +22,20 @@ git clone git@github.com:yardasol/ubuntu-nuclear-software-installer
 Boom. You're done
 
 # Usage
-***NOTE:*** The scripts have my directory structure hard-coded in right now, so the instructions below will not work as-is without some tinkering on your part. This will be changed in the near future to be more generalized.
-
 The following variables should be set by the end user:
  - `GITHUB_UNAME` in `install.bash`
 
 To use the software, run the following in your terminal
 ```bash
 cd ubuntu-nuclear-software-installer
-source ubuntu-nuclear-software-installer.bash CODENAME
+bash ubuntu-nuclear-software-installer.bash CODENAME
 ```
+
+If something went wrong and you want to try again, add the `--clean` flag:
+```bash
+bash ubuntu-nuclear-software-installer.bash CODENAME --clean
+```
+
 Boom. You're done.
 
 # Contributing
