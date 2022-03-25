@@ -7,7 +7,8 @@ The scripts install the following:
 - [PyNE](https://github.com/pyne/pyne)
 - [SaltProc](https://github.com/arfc/saltproc)
 - [CPython](https://github.com/python/cpython) (builds python with debugging symbols turned on as a conda package. This is useful for using interactive debuggers (e.g. `gdb`) on software like PyNE that use both C and Python)
-- [Serpent2](http://montecarlo.vtt.fi/) **note**: since serpent is export-controlled software, you'll need to obtain the source code on your own. All information used to modify install flags and apply bug fixes can be found on the [Serpent wiki](https://serpent.vtt.fi/mediawiki/index.php/Main_Page) and the [Serpent forums](https://ttuki.vtt.fi/serpent/index.php?sid=3038d3b423fe27ac9e5a75c11425fa00) respectively.
+- [Serpent2](http://montecarlo.vtt.fi/) **note**: since serpent is export-controlled software, you'll need to obtain the source code on your own. All information used to modify install flags and apply bug fixes can be found on the [installation page in the Serpent wiki](https://serpent.vtt.fi/mediawiki/index.php/Installing_and_running_Serpent) and the [Serpent forums](https://ttuki.vtt.fi/serpent/index.php?sid=3038d3b423fe27ac9e5a75c11425fa00) respectively. See `serpent/bugfixes/` for an itemized list of
+    each bug.
 
 
 # Requirements
