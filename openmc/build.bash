@@ -17,7 +17,7 @@ cd $CODEPATH && mkdir -p build app && cd build
 CC=gcc \
 CXX=g++ \
 HDF5_ROOT=$HDF5_PATH \
-cmake -Ddebug=on -Doptimize=on -DCMAKE_INSTALL_PREFIX=$CODEPATH/app ..
+cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$CODEPATH/app ..
 make
 make install
 
