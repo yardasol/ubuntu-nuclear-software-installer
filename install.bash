@@ -6,7 +6,7 @@ GITHUB_UNAME=yardasol
 # Set up local git branch
 if [[ ! -d "$CODEPATH" ]]
 then
-    git clone git@github.com:$GITHUB_UNAME/$CODENAME $CODEPATH
+    git clone --recurse-submodules git@github.com:$GITHUB_UNAME/$CODENAME $CODEPATH
     cd $CODEPATH
     git remote add upstream git@github.com:$ORGNAME/$CODENAME
 fi
