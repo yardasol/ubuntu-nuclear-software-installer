@@ -1,0 +1,3 @@
+ORGNAME=njoy
+BRANCH=master
+INSTALLEXTRA=0

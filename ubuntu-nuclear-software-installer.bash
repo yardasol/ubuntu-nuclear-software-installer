@@ -37,8 +37,10 @@ if [[ "$2" == "--clean" || ! -d $CODEPATH ]]; then
         source install.bash
 
         # Step 2: setup conda environments
-        echo "Creating environment for $CODENAME"
-        source env.bash
+        if [[ -f $CODENAME/environment.yml ]]; then
+            echo "Creating environment for $CODENAME"
+            source env.bash
+        fi
     else
         echo "Setting up closed-source software files"
         source $CODENAME/install-extra.bash
