@@ -3,8 +3,8 @@
 conda activate openmc-env
 
 # Paths
-#HDF5_PATH=$CONDA_PREFIX
-HDF5_PATH=/usr
+HDF5_PATH=$CONDA_PREFIX
+#HDF5_PATH=/usr
 
 # build h5py
 CC=gcc \
@@ -17,7 +17,7 @@ cd $CODEPATH && mkdir -p build app && cd build
 CC=gcc \
 CXX=g++ \
 HDF5_ROOT=$HDF5_PATH \
-cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$CODEPATH/app ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$CODEPATH/app ..
 make
 make install
 
