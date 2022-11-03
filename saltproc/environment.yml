@@ -1,14 +1,37 @@
 name: saltproc-env
 channels:
   - conda-forge
-  - defaults
+  #- file:///home/ooblack/miniconda3/envs/cpython-env/conda-bld/
 dependencies:
-  - pyne>=0.5.11
-  - numpy>=1.14.0
+  #- python=3.9.10=debug
+  - python=3.9
+  - hdf5
+  - numpy<1.22
   - pytables
+  - scipy
+  - cython
+  - pandas
   - networkx
   - pydotplus
   - pytest
   - jsonschema
+  - matplotlib
+  - notebook
+  - nb_conda_kernels
+  - uncertainties
+  - lxml
+  - pytest
+  - requests
+  - entrypoints
+  - pyyaml
+  - vtk
+  - coverage
+  - pytest-cov
+  - colorama
   - pip:
     - argparse==1.4.0
+    - Jinja2
+    - progress
+    - nose
+    - future
+ 
