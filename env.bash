@@ -5,7 +5,13 @@ echo "Activate the env"
 conda activate $CODENAME-env
 
 # Configure conda to work with conda-forge
-conda config --env --append channels conda-forge
+EXPR="$(conda config --show channels)"
+if [[ $EXPR =~ "conda-forge" ]]
+then
+    echo "conda-forge already in channels"
+else
+    conda config --env --append channels conda-forge
+fi
 conda config --env --set pip_interop_enabled True
 
 echo "update the env"
