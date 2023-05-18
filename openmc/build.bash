@@ -3,21 +3,22 @@
 conda activate openmc-env
 
 # Paths
-HDF5_PATH=$CONDA_PREFIX
+#HDF5_PATH=$CONDA_PREFIX
 #HDF5_PATH=/usr
 
 # build h5py
+#HDF5_DIR=$HDF5_PATH \
 CC=gcc \
-HDF5_DIR=$HDF5_PATH \
 pip install --upgrade-strategy only-if-needed --no-binary=h5py h5py
-
 
 # Build Openmc from source
 cd $CODEPATH && mkdir -p build app && cd build
 CC=gcc \
 CXX=g++ \
 HDF5_ROOT=$HDF5_PATH \
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$CODEPATH/app ..
+cmake -DCMAKE_FIND_ROOT_PATH=$CONDA_PREFIX \
+-DCMAKE_BUILD_TYPE=Release \
+-DCMAKE_INSTALL_PREFIX=$CODEPATH/app ..
 make
 make install
 

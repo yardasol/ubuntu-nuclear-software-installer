@@ -1,3 +1,3 @@
 ORGNAME=arfc
-BRANCH=master
+BRANCH=remove-pyne
 INSTALLEXTRA=1
