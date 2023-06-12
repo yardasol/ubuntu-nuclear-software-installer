@@ -43,6 +43,8 @@ cd $HOME/projects/openmc
 # Download the test cross sections
 cd tools/ci
 ./download-xs.sh
+mv $HOME/endf-b-vii.1 $XSDIR/endf-b-vii.1
+mv $HOME/nndc_hdf5 $XSDIR/nndc_hdf5
 
 # NJOY requires a bit more effort to get
 DIR=$HOME/projects/NJOY2016
@@ -58,7 +60,7 @@ else
 	cd bin
 fi
 cmake -D CMAKE_BUILD_TYPE=Release ../
-make
+make -j $N_THREADS
 make test
 
 # Return to execution directory

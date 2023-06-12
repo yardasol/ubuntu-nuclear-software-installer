@@ -19,12 +19,12 @@ HDF5_ROOT=$HDF5_PATH \
 cmake -DCMAKE_FIND_ROOT_PATH=$CONDA_PREFIX \
 -DCMAKE_BUILD_TYPE=Release \
 -DCMAKE_INSTALL_PREFIX=$CODEPATH/app ..
-make
+make -j $N_THREADS
 make install
 
 # Build test suite
 cd ..
-pip install --upgrade-strategy only-if-needed -e .[test]
+pip install --no-build-isolation --upgrade-strategy only-if-needed -e .[test]
 
 # Add OpenMC to path
 if [[ $(grep "export PATH="$CODEPATH/app/bin:'$PATH'"" $BRC) ]]

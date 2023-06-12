@@ -1,0 +1,3 @@
+ORGNAME=svalinn
+BRANCH=develop
+INSTALLEXTRA=0

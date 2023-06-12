@@ -5,6 +5,13 @@ set -e
 CONDA_PATH=$(conda info | grep -i 'base environment' | awk '{print $4}')
 source $CONDA_PATH/etc/profile.d/conda.sh
 
+# Get # threads
+N_THREADS=$(($(cat /proc/cpuinfo | grep processor | wc -l)-1)) 
+if [[ $N_THREADS -le 0 ]]
+then
+    N_THREADS=1
+fi
+
 # Paths
 CURRENT=`pwd`
 CODENAME=$1
@@ -36,9 +43,12 @@ if [[ "$2" == "--clean" || ! -d $CODEPATH ]]; then
         echo "Installing $CODENAME"
         source install.bash
 
-        # Step 2: setup conda environments
-        echo "Creating environment for $CODENAME"
-        source env.bash
+        if [[ $CODENAME != "dagmc" ]]
+        then
+            # Step 2: setup conda environments
+            echo "Creating environment for $CODENAME"
+            source env.bash
+        fi
     else
         echo "Setting up closed-source software files"
         source $CODENAME/install-extra.bash
@@ -51,7 +61,7 @@ fi
 
 # Step 4: test that software works
 echo "Testing $CODENAME"
-if [[ -f $CODENAME/pretest.sh ]]; then
+if [[ -f $CODENAME/pretest.bash ]]; then
     source $CODENAME/pretest.bash
 fi
 source $CODENAME/test.bash

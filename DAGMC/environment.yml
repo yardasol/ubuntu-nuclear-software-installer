@@ -1,4 +1,4 @@
-name: openmc-env
+name: openmc-dagmc-env
 channels:
   - conda-forge
 dependencies:
