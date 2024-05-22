@@ -7,7 +7,7 @@ HDF5_PATH=$CONDA_PREFIX
 #HDF5_PATH=/usr
 
 # build h5py
-#HDF5_DIR=$HDF5_PATH \
+HDF5_DIR=$HDF5_PATH \
 CC=gcc \
 pip install --upgrade-strategy only-if-needed --no-binary=h5py h5py
 
