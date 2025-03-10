@@ -1,13 +1,15 @@
 #! ~/bin/bash
 # Activate conda environment
 conda activate openmc-env
+mamba install -c bkryza/label/clang-uml clang-uml
+mamba install clang
 
 # Paths
 HDF5_PATH=$CONDA_PREFIX
 #HDF5_PATH=/usr
 
 # build h5py
-#HDF5_DIR=$HDF5_PATH \
+HDF5_DIR=$HDF5_PATH \
 CC=gcc \
 pip install --upgrade-strategy only-if-needed --no-binary=h5py h5py
 
