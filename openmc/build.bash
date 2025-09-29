@@ -1,8 +1,6 @@
 #! ~/bin/bash
 # Activate conda environment
 conda activate openmc-env
-mamba install -c bkryza/label/clang-uml clang-uml
-mamba install clang
 
 # Paths
 HDF5_PATH=$CONDA_PREFIX
@@ -18,8 +16,9 @@ cd $CODEPATH && mkdir -p build app && cd build
 CC=gcc \
 CXX=g++ \
 HDF5_ROOT=$HDF5_PATH \
-cmake -DCMAKE_FIND_ROOT_PATH=$CONDA_PREFIX \
--DCMAKE_BUILD_TYPE=Release \
+cmake -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ \
+-DCMAKE_FIND_ROOT_PATH=$CONDA_PREFIX \
+-DCMAKE_BUILD_TYPE=Debug \
 -DCMAKE_INSTALL_PREFIX=$CODEPATH/app ..
 make -j $N_THREADS
 make install

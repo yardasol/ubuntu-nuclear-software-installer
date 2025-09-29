@@ -15,4 +15,4 @@ fi
 conda config --env --set pip_interop_enabled True
 
 echo "update the env"
-mamba env update -f $CODENAME/environment.yml
+conda env update -f $CODENAME/environment.yml

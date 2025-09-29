@@ -10,7 +10,7 @@ if [[ $input = "y" ]];
 	then
 	# Remove current openmc environment
 	conda activate base
-	conda env remove -n openmv-env
+	conda env remove -n openmc-env
 
 	# Create empty openmc environment
 	conda create --name openmc-env --yes
